@@ -4,11 +4,12 @@ P50 iOS app
 Proposed features:
 ------------------
 
-+ RSS feed ereader (news).
++ RSS feed reader (news).
 + Calendar.
 + Feedback.
-+ Talleres asistidos.
-+ Recomendaciones.
++ Video Seminar
++ Attended Workshops.
++ Recommendations.
 
 
 R&D
