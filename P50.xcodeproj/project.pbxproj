@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A05B2DF213C4FCEF00F1525B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF113C4FCEF00F1525B /* UIKit.framework */; };
+		A05B2DF413C4FCEF00F1525B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF313C4FCEF00F1525B /* Foundation.framework */; };
+		A05B2DF613C4FCEF00F1525B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF513C4FCEF00F1525B /* CoreGraphics.framework */; };
+		A05B2DFC13C4FCEF00F1525B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A05B2DFA13C4FCEF00F1525B /* InfoPlist.strings */; };
+		A05B2DFF13C4FCEF00F1525B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A05B2DFE13C4FCEF00F1525B /* main.m */; };
+		A05B2E0213C4FCEF00F1525B /* P50AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A05B2E0113C4FCEF00F1525B /* P50AppDelegate.m */; };
+		A05B2E0613C4FCEF00F1525B /* P50AppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = A05B2E0513C4FCEF00F1525B /* P50AppDelegate_iPhone.m */; };
+		A05B2E0913C4FCEF00F1525B /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05B2E0713C4FCEF00F1525B /* MainWindow_iPhone.xib */; };
+		A05B2E0D13C4FCEF00F1525B /* P50AppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A05B2E0C13C4FCEF00F1525B /* P50AppDelegate_iPad.m */; };
+		A05B2E1013C4FCEF00F1525B /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05B2E0E13C4FCEF00F1525B /* MainWindow_iPad.xib */; };
+		A05B2E1713C4FCEF00F1525B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF113C4FCEF00F1525B /* UIKit.framework */; };
+		A05B2E1813C4FCEF00F1525B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF313C4FCEF00F1525B /* Foundation.framework */; };
+		A05B2E1913C4FCEF00F1525B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF513C4FCEF00F1525B /* CoreGraphics.framework */; };
+		A05B2E2113C4FCEF00F1525B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A05B2E1F13C4FCEF00F1525B /* InfoPlist.strings */; };
+		A05B2E2413C4FCEF00F1525B /* P50Tests.h in Resources */ = {isa = PBXBuildFile; fileRef = A05B2E2313C4FCEF00F1525B /* P50Tests.h */; };
+		A05B2E2613C4FCEF00F1525B /* P50Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A05B2E2513C4FCEF00F1525B /* P50Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A05B2E1A13C4FCEF00F1525B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A05B2DE413C4FCEE00F1525B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A05B2DEC13C4FCEE00F1525B;
+			remoteInfo = P50;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A05B2DED13C4FCEE00F1525B /* P50.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P50.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A05B2DF113C4FCEF00F1525B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A05B2DF313C4FCEF00F1525B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A05B2DF513C4FCEF00F1525B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A05B2DF913C4FCEF00F1525B /* P50-Info.plist */ = {isa = PBXFileReference; path = "P50-Info.plist"; sourceTree = "<group>"; };
+		A05B2DFB13C4FCEF00F1525B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A05B2DFD13C4FCEF00F1525B /* P50-Prefix.pch */ = {isa = PBXFileReference; path = "P50-Prefix.pch"; sourceTree = "<group>"; };
+		A05B2DFE13C4FCEF00F1525B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A05B2E0013C4FCEF00F1525B /* P50AppDelegate.h */ = {isa = PBXFileReference; path = P50AppDelegate.h; sourceTree = "<group>"; };
+		A05B2E0113C4FCEF00F1525B /* P50AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P50AppDelegate.m; sourceTree = "<group>"; };
+		A05B2E0413C4FCEF00F1525B /* P50AppDelegate_iPhone.h */ = {isa = PBXFileReference; name = P50AppDelegate_iPhone.h; path = iPhone/P50AppDelegate_iPhone.h; sourceTree = "<group>"; };
+		A05B2E0513C4FCEF00F1525B /* P50AppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = P50AppDelegate_iPhone.m; path = iPhone/P50AppDelegate_iPhone.m; sourceTree = "<group>"; };
+		A05B2E0813C4FCEF00F1525B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		A05B2E0B13C4FCEF00F1525B /* P50AppDelegate_iPad.h */ = {isa = PBXFileReference; name = P50AppDelegate_iPad.h; path = iPad/P50AppDelegate_iPad.h; sourceTree = "<group>"; };
+		A05B2E0C13C4FCEF00F1525B /* P50AppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = P50AppDelegate_iPad.m; path = iPad/P50AppDelegate_iPad.m; sourceTree = "<group>"; };
+		A05B2E0F13C4FCEF00F1525B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		A05B2E1613C4FCEF00F1525B /* P50Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P50Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A05B2E1E13C4FCEF00F1525B /* P50Tests-Info.plist */ = {isa = PBXFileReference; path = "P50Tests-Info.plist"; sourceTree = "<group>"; };
+		A05B2E2013C4FCEF00F1525B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A05B2E2213C4FCEF00F1525B /* P50Tests-Prefix.pch */ = {isa = PBXFileReference; path = "P50Tests-Prefix.pch"; sourceTree = "<group>"; };
+		A05B2E2313C4FCEF00F1525B /* P50Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P50Tests.h; sourceTree = "<group>"; };
+		A05B2E2513C4FCEF00F1525B /* P50Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P50Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A05B2DEA13C4FCEE00F1525B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2DF213C4FCEF00F1525B /* UIKit.framework in Frameworks */,
+				A05B2DF413C4FCEF00F1525B /* Foundation.framework in Frameworks */,
+				A05B2DF613C4FCEF00F1525B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A05B2E1213C4FCEF00F1525B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2E1713C4FCEF00F1525B /* UIKit.framework in Frameworks */,
+				A05B2E1813C4FCEF00F1525B /* Foundation.framework in Frameworks */,
+				A05B2E1913C4FCEF00F1525B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A05B2DE213C4FCEE00F1525B = {
+			isa = PBXGroup;
+			children = (
+				A05B2DF713C4FCEF00F1525B /* P50 */,
+				A05B2E1C13C4FCEF00F1525B /* P50Tests */,
+				A05B2DF013C4FCEE00F1525B /* Frameworks */,
+				A05B2DEE13C4FCEE00F1525B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A05B2DEE13C4FCEE00F1525B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2DED13C4FCEE00F1525B /* P50.app */,
+				A05B2E1613C4FCEF00F1525B /* P50Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A05B2DF013C4FCEE00F1525B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2DF113C4FCEF00F1525B /* UIKit.framework */,
+				A05B2DF313C4FCEF00F1525B /* Foundation.framework */,
+				A05B2DF513C4FCEF00F1525B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A05B2DF713C4FCEF00F1525B /* P50 */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2E0013C4FCEF00F1525B /* P50AppDelegate.h */,
+				A05B2E0113C4FCEF00F1525B /* P50AppDelegate.m */,
+				A05B2E0313C4FCEF00F1525B /* iPhone */,
+				A05B2E0A13C4FCEF00F1525B /* iPad */,
+				A05B2DF813C4FCEF00F1525B /* Supporting Files */,
+			);
+			path = P50;
+			sourceTree = "<group>";
+		};
+		A05B2DF813C4FCEF00F1525B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2DF913C4FCEF00F1525B /* P50-Info.plist */,
+				A05B2DFA13C4FCEF00F1525B /* InfoPlist.strings */,
+				A05B2DFD13C4FCEF00F1525B /* P50-Prefix.pch */,
+				A05B2DFE13C4FCEF00F1525B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A05B2E0313C4FCEF00F1525B /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2E0413C4FCEF00F1525B /* P50AppDelegate_iPhone.h */,
+				A05B2E0513C4FCEF00F1525B /* P50AppDelegate_iPhone.m */,
+				A05B2E0713C4FCEF00F1525B /* MainWindow_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		A05B2E0A13C4FCEF00F1525B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2E0B13C4FCEF00F1525B /* P50AppDelegate_iPad.h */,
+				A05B2E0C13C4FCEF00F1525B /* P50AppDelegate_iPad.m */,
+				A05B2E0E13C4FCEF00F1525B /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		A05B2E1C13C4FCEF00F1525B /* P50Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2E2313C4FCEF00F1525B /* P50Tests.h */,
+				A05B2E2513C4FCEF00F1525B /* P50Tests.m */,
+				A05B2E1D13C4FCEF00F1525B /* Supporting Files */,
+			);
+			path = P50Tests;
+			sourceTree = "<group>";
+		};
+		A05B2E1D13C4FCEF00F1525B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A05B2E1E13C4FCEF00F1525B /* P50Tests-Info.plist */,
+				A05B2E1F13C4FCEF00F1525B /* InfoPlist.strings */,
+				A05B2E2213C4FCEF00F1525B /* P50Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A05B2DEC13C4FCEE00F1525B /* P50 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A05B2E2913C4FCEF00F1525B /* Build configuration list for PBXNativeTarget "P50" */;
+			buildPhases = (
+				A05B2DE913C4FCEE00F1525B /* Sources */,
+				A05B2DEA13C4FCEE00F1525B /* Frameworks */,
+				A05B2DEB13C4FCEE00F1525B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = P50;
+			productName = P50;
+			productReference = A05B2DED13C4FCEE00F1525B /* P50.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A05B2E1513C4FCEF00F1525B /* P50Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A05B2E2C13C4FCEF00F1525B /* Build configuration list for PBXNativeTarget "P50Tests" */;
+			buildPhases = (
+				A05B2E1113C4FCEF00F1525B /* Sources */,
+				A05B2E1213C4FCEF00F1525B /* Frameworks */,
+				A05B2E1313C4FCEF00F1525B /* Resources */,
+				A05B2E1413C4FCEF00F1525B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A05B2E1B13C4FCEF00F1525B /* PBXTargetDependency */,
+			);
+			name = P50Tests;
+			productName = P50Tests;
+			productReference = A05B2E1613C4FCEF00F1525B /* P50Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A05B2DE413C4FCEE00F1525B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A05B2DE713C4FCEE00F1525B /* Build configuration list for PBXProject "P50" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A05B2DE213C4FCEE00F1525B;
+			productRefGroup = A05B2DEE13C4FCEE00F1525B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A05B2DEC13C4FCEE00F1525B /* P50 */,
+				A05B2E1513C4FCEF00F1525B /* P50Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A05B2DEB13C4FCEE00F1525B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2DFC13C4FCEF00F1525B /* InfoPlist.strings in Resources */,
+				A05B2E0913C4FCEF00F1525B /* MainWindow_iPhone.xib in Resources */,
+				A05B2E1013C4FCEF00F1525B /* MainWindow_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A05B2E1313C4FCEF00F1525B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2E2113C4FCEF00F1525B /* InfoPlist.strings in Resources */,
+				A05B2E2413C4FCEF00F1525B /* P50Tests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A05B2E1413C4FCEF00F1525B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A05B2DE913C4FCEE00F1525B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2DFF13C4FCEF00F1525B /* main.m in Sources */,
+				A05B2E0213C4FCEF00F1525B /* P50AppDelegate.m in Sources */,
+				A05B2E0613C4FCEF00F1525B /* P50AppDelegate_iPhone.m in Sources */,
+				A05B2E0D13C4FCEF00F1525B /* P50AppDelegate_iPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A05B2E1113C4FCEF00F1525B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05B2E2613C4FCEF00F1525B /* P50Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A05B2E1B13C4FCEF00F1525B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A05B2DEC13C4FCEE00F1525B /* P50 */;
+			targetProxy = A05B2E1A13C4FCEF00F1525B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A05B2DFA13C4FCEF00F1525B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A05B2DFB13C4FCEF00F1525B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A05B2E0713C4FCEF00F1525B /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A05B2E0813C4FCEF00F1525B /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A05B2E0E13C4FCEF00F1525B /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A05B2E0F13C4FCEF00F1525B /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+		A05B2E1F13C4FCEF00F1525B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A05B2E2013C4FCEF00F1525B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A05B2E2713C4FCEF00F1525B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A05B2E2813C4FCEF00F1525B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A05B2E2A13C4FCEF00F1525B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "P50/P50-Prefix.pch";
+				INFOPLIST_FILE = "P50/P50-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A05B2E2B13C4FCEF00F1525B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "P50/P50-Prefix.pch";
+				INFOPLIST_FILE = "P50/P50-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A05B2E2D13C4FCEF00F1525B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/P50.app/P50";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "P50Tests/P50Tests-Prefix.pch";
+				INFOPLIST_FILE = "P50Tests/P50Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A05B2E2E13C4FCEF00F1525B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/P50.app/P50";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "P50Tests/P50Tests-Prefix.pch";
+				INFOPLIST_FILE = "P50Tests/P50Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A05B2DE713C4FCEE00F1525B /* Build configuration list for PBXProject "P50" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A05B2E2713C4FCEF00F1525B /* Debug */,
+				A05B2E2813C4FCEF00F1525B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A05B2E2913C4FCEF00F1525B /* Build configuration list for PBXNativeTarget "P50" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A05B2E2A13C4FCEF00F1525B /* Debug */,
+				A05B2E2B13C4FCEF00F1525B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A05B2E2C13C4FCEF00F1525B /* Build configuration list for PBXNativeTarget "P50Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A05B2E2D13C4FCEF00F1525B /* Debug */,
+				A05B2E2E13C4FCEF00F1525B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A05B2DE413C4FCEE00F1525B /* Project object */;
+}
