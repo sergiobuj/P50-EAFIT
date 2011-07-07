@@ -7,7 +7,7 @@
 //
 
 #import "ModalViewLogin.h"
-
+#import "UIColor+SBColors.h"
 
 @implementation ModalViewLogin
 @synthesize delegate;
@@ -45,8 +45,14 @@
 	userField.returnKeyType = UIReturnKeyNext;
 	passField.returnKeyType = UIReturnKeyDone;
 	
+	[userField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+	
+	
+	[userField setFont:[UIFont systemFontOfSize:30.0]];
+	[passField setFont:[UIFont systemFontOfSize:30.0]];
+	
 	//content view setup
-	[contentView setBackgroundColor:[UIColor grayColor]];
+	[contentView setBackgroundColor:[UIColor blueP50]];
 	[contentView addSubview:userField];
 	[contentView addSubview:passField];
 	[userField setDelegate:self];
@@ -55,7 +61,7 @@
 	[passField setTag:2];
 	//view setup
 	self.view = contentView;
-	self.title = NSLocalizedString(@"login_win_title",@"");	
+	self.title = NSLocalizedString(@"login_mod_title",@"");	
 	//release
 	
 	[contentView release];
@@ -67,12 +73,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	UIBarButtonItem *cancelB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButton)];
-	UIBarButtonItem *sendB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(login)];
 	
-	self.navigationItem.rightBarButtonItem = sendB;
+	UIBarButtonItem * loginB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"login_title", @"login button title") style:UIBarButtonItemStyleDone target:self action:@selector(login)];
+
+	self.navigationItem.rightBarButtonItem = loginB;
 	self.navigationItem.leftBarButtonItem = cancelB;
-	
-	[sendB release];
+		
+	[loginB release];
 	[cancelB release];
 	
 }

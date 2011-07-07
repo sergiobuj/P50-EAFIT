@@ -8,6 +8,7 @@
 
 #import "LasVegasViewController.h"
 #import "RSSFeed.h"
+#import "UIColor+SBColors.h"
 
 enum {
 	ulises_tag,
@@ -148,7 +149,7 @@ enum {
 
 	[cookingView release];
 	
-	//	[self showModal:self];	
+	[self showModal:self];	
 	
 }
 
@@ -158,19 +159,15 @@ enum {
 	ModalViewLogin *stc  = [[ModalViewLogin alloc] init];
 	stc.delegate = self;
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:stc];
+	[[navController navigationBar] setTintColor:[UIColor blueP50]];
 	[self.navigationController presentModalViewController:navController animated:YES];
 	self.navigationItem.prompt = nil;
 	[navController release];
 	[stc release];
-}
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
 
 }
-*/
+
 
 - (void)viewDidUnload
 {
@@ -190,28 +187,7 @@ enum {
 	
 	
 	[self.navigationController pushViewController:[pagesDictionary objectForKey: [sender titleForState:UIControlStateApplication]] animated:YES];
-	
-	/*
-	switch ([sender tag]) {
-		case news_tag:
-			[self.navigationController pushViewController:newsFeed animated:YES];
-			//			NSLog(@"tag:%d", news_tag);
-			break;
-			
-		case ulises_tag:
-			//NSLog(@"tag:%d", ulises_tag);
-			break;
-			
-			
-		case map_tag:
-			[self.navigationController pushViewController:campusMap animated:YES];
-			//			NSLog(@"tag:%d", map_tag);
-			break;
-			
-		default:
-			break;
-	}
-	*/
+
 }
 
 
@@ -220,21 +196,17 @@ enum {
 #pragma mark ModalViewDelegate Methods
 - (void) loginWithUsername:(NSString *) username andPass:(NSString *)password {
 
-	NSLog(@"username");
-	if ([username isEqualToString:@"Pow"]) {
+	if ([username isEqualToString:@"user1"]) {
 		[self dismissModalViewControllerAnimated:YES];		
 	}else{
-		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:@"", nil];
+		UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Login" message:@"Login un/succesful" delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:nil, nil];
 		[alert show];
 		[alert release];
 	}
-
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void) loginCancelled {
-
-	NSLog(@"cancelled");
-
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "VideoList.h"
+#import "SBPlistReader.h"
 
 @interface VideoList () 
 - (void) fetchTableViewInfo;
@@ -124,10 +125,8 @@
 
 - (void) fetchTableViewInfo {
 
-	NSDictionary * video = [[NSDictionary alloc] initWithObjectsAndKeys:@"Video 1",@"title",@"2001/10/10",@"date", @"http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov",@"videoURL", nil];
+	[videosAvailable setArray: [SBPlistReader arrayForResource:@"videos" fromPlist:@"Customization"]];
 	
-	[videosAvailable addObject:video];
-	[video release];
 
 	[self finishFetchTableViewInfo];
 }

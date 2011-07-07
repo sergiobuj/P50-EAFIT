@@ -17,6 +17,24 @@
 				<key>viewController</key>
 				<string>RSSFeed</string>
 			</dict>
+			<dict>
+				<key>title</key>
+				<string>feedback_title</string>
+				<key>viewController</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>calendar_title</string>
+				<key>viewController</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>attended_workshops_title</string>
+				<key>viewController</key>
+				<string></string>
+			</dict>
 		</array>
 	</array>
 	<key>rss_feeds</key>
@@ -24,5 +42,48 @@
 		<key>RSSFeed</key>
 		<string>http://docentes.eafit.edu.co/noticias.rss</string>
 	</dict>
+	<key>videos</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Trailer Senna</string>
+			<key>videoURL</key>
+			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
+			<key>date</key>
+			<string>07/07/2011</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Trailer Senna</string>
+			<key>videoURL</key>
+			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
+			<key>date</key>
+			<string>07/07/2011</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Trailer Senna</string>
+			<key>videoURL</key>
+			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
+			<key>date</key>
+			<string>07/07/2011</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Trailer Senna</string>
+			<key>videoURL</key>
+			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
+			<key>date</key>
+			<string>07/07/2011</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Trailer Senna</string>
+			<key>videoURL</key>
+			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
+			<key>date</key>
+			<string>07/07/2011</string>
+		</dict>
+	</array>
 </dict>
 </plist>
