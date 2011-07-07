@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>pages</key>
+	<array>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>videos_title</string>
+				<key>viewController</key>
+				<string>VideoList</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>news_title</string>
+				<key>viewController</key>
+				<string>RSSFeed</string>
+			</dict>
+		</array>
+	</array>
+	<key>rss_feeds</key>
+	<dict>
+		<key>RSSFeed</key>
+		<string>http://docentes.eafit.edu.co/noticias.rss</string>
+	</dict>
+</dict>
+</plist>
