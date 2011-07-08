@@ -23,7 +23,7 @@
 	[self.window addSubview: mainEntrance.view];
 
 	[self.window makeKeyAndVisible];
-
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 	[viewController release];
     return YES;
 

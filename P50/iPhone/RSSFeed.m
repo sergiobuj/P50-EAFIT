@@ -112,13 +112,13 @@
     [super viewDidDisappear:animated];
 }
 */
-/*
-// Override to allow orientations other than the default portrait orientation.
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
+    return YES;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
+
 
 
 #pragma mark -
@@ -194,17 +194,31 @@
 
 #pragma mark -
 #pragma mark Table view delegate
-
+// TODO: Move uiwebview to a separe uiviewcontroller to implement custom back/forward and reload buttons
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 	 */
+	NSString * link = [[entries objectAtIndex:indexPath.row] objectForKey:@"link"];
+	UIWebView * webview = [[UIWebView alloc] init];
+	[webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
+	//	[self presentModalViewController:webview animated:YES];
+	UIViewController * webVC = [[UIViewController alloc] init];
+	webview.scalesPageToFit = YES;
+	webVC.view = webview;
+	
+	//	[self.navigationController presentModalViewController:webVC animated:NO];
+	[self.navigationController pushViewController:webVC animated:YES];
+	//	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]]; 
+	
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	[webVC release];
+	[webview release];
 }
 
 
