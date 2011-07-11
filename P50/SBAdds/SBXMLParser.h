@@ -19,12 +19,12 @@
 	NSMutableString * currTitle;
 	NSMutableString * currDescription;
 	id <SBParserDelegate> _delegate ;
-	NSURL *_rssFeedURL;
+	NSString *_rssFeedURL;
 
 }
 
 @property (nonatomic, retain) id <SBParserDelegate> delegate;
-@property (nonatomic, retain) NSURL * rssFeedURL;
+@property (nonatomic, copy) NSString * rssFeedURL;
 - (id) initWithUrl:(NSString *)url;
 - (void) loadDocument;
 @end

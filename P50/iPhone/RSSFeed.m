@@ -18,7 +18,8 @@
 
 @implementation RSSFeed
 
-@synthesize reloading=_reloading;
+@synthesize reloading = _reloading;
+@synthesize urlFeed = _urlFeed;
 
 #pragma mark -
 #pragma mark Initialization
@@ -40,8 +41,10 @@
 
 
 - (void)viewDidLoad {
+	
     [super viewDidLoad];
 	[self setTitle:NSLocalizedString(@"news_title", @"")];
+	
 	if (refreshHeaderView == nil) {
 		refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, 320.0f, self.tableView.bounds.size.height)];
 		refreshHeaderView.backgroundColor = [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0];
@@ -50,40 +53,28 @@
 		[refreshHeaderView release];
 	}
 	
+	webBrowser = [[WebBrowserController alloc] init];
+	
 	entries = [[NSMutableArray alloc] init];
-//	spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	xmlQueue = [[NSOperationQueue alloc] init];
-	
-	if (urlFeed == nil) {
-		
-		NSString *plistUrl =  [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey: NSStringFromClass([self class]) ];
-				
-		urlFeed = [[NSString alloc] initWithString:plistUrl];
+
+	if (_urlFeed == nil) {
+		NSString *plistUrl =  [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey:@"RSSFeed"];
+		_urlFeed = [[NSString alloc] initWithString:plistUrl];
 	}
-	
-	xmlParser = [[SBXMLParser alloc] initWithUrl:urlFeed];
+
+	xmlParser = [[SBXMLParser alloc] initWithUrl:_urlFeed];
 	
 	[xmlParser setDelegate:self];
 
 	[refreshHeaderView setState:EGOOPullRefreshLoading];
 	self.tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
 	[self reloadTableViewDataSource];
-	//[NSThread detachNewThreadSelector:@selector(LoadXML) toTarget:self withObject:nil];
-	
-//	UIBarButtonItem *spinnerUp = [[[UIBarButtonItem alloc] initWithCustomView:spinner] autorelease];
-	
-//	[self.navigationItem setRightBarButtonItem: spinnerUp];
-	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-
 }
 
 - (void) LoadXML{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-//	[spinner startAnimating];
 	[xmlQueue addOperationWithBlock:^{
 		[xmlParser loadDocument];
 	}];
@@ -92,31 +83,12 @@
 	[pool drain];
 }
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-*/
+
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -141,84 +113,32 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
-    [cell.textLabel setText:[[entries objectAtIndex:indexPath.row] objectForKey:@"title"]];
+	cell.imageView.image = [UIImage imageNamed:@"icon.png"];
+	//	cell.detailTextLabel.text = @"";
+    cell.textLabel.text = [[entries objectAtIndex:indexPath.row] objectForKey:@"title"];
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark -
 #pragma mark Table view delegate
-// TODO: Move uiwebview to a separe uiviewcontroller to implement custom back/forward and reload buttons
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	 */
-	NSString * link = [[entries objectAtIndex:indexPath.row] objectForKey:@"link"];
-	UIWebView * webview = [[UIWebView alloc] init];
-	[webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:link]]];
-	//	[self presentModalViewController:webview animated:YES];
-	UIViewController * webVC = [[UIViewController alloc] init];
-	webview.scalesPageToFit = YES;
-	webVC.view = webview;
+
+	NSString * link = [[entries objectAtIndex: indexPath.row] objectForKey: @"link"];
+	NSURLRequest * siteRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
+
+
 	
-	//	[self.navigationController presentModalViewController:webVC animated:NO];
-	[self.navigationController pushViewController:webVC animated:YES];
-	//	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]]; 
-	
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-	[webVC release];
-	[webview release];
+	[self.navigationController pushViewController:webBrowser animated:YES];
+	[webBrowser.webView loadRequest:siteRequest];
+	[self.tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
 
@@ -235,16 +155,16 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
-	refreshHeaderView=nil;
+	refreshHeaderView = nil;
 
 }
 
 
 - (void)dealloc {
-	[urlFeed release];
+	[webBrowser release];
+	[_urlFeed release];
 	[xmlQueue release];
 	[xmlParser release];
-//	[spinner release];
 	refreshHeaderView = nil;
     [super dealloc];
 }
@@ -259,7 +179,6 @@
 	
 	[entries removeAllObjects];
 	[entries setArray:array];
-//	[spinner stopAnimating];
 	[self.tableView reloadData];
 	[self dataSourceDidFinishLoadingNewData];
 
@@ -269,20 +188,8 @@
 #pragma mark EGOOPullRefresh Methods
 
 - (void)reloadTableViewDataSource{
-	//  should be calling your tableviews model to reload
-	//  put here just for demo
-	//	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
-	//[self performSelector:@selector(doneLoadingTableViewData)];
 	[self LoadXML];
-//	[NSThread detachNewThreadSelector:@selector(LoadXML) toTarget:self withObject:nil];
 }
-
-
-//- (void)doneLoadingTableViewData{
-	//  model should call this when its done loading
-	//[self dataSourceDidFinishLoadingNewData];
-	//}
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{	
 	

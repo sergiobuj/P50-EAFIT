@@ -20,27 +20,33 @@ NSString * const LINK = @"link";
 @synthesize rssFeedURL = _rssFeedURL;
 
 - (id) initWithUrl:(NSString *)url{
-	
-	if (self == [super init]) {
-		self.rssFeedURL = [[NSURL alloc] initWithString:url];
-		
+	self = [super init];
+	if (self) {
+		_rssFeedURL = [[NSString alloc] initWithString:url];
 	}
 	return self;
 }
 
 
 - (void) loadDocument {
-	
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-	[[NSURLCache sharedURLCache] setDiskCapacity:0];
-	NSXMLParser * rssParser = [[NSXMLParser alloc] initWithContentsOfURL: self.rssFeedURL ];
+	NSURL * url = [[NSURL alloc] initWithString:_rssFeedURL];
+	
+	//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
+	//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
+	
+	NSXMLParser * rssParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+	
 	[rssParser setShouldProcessNamespaces:NO];
+	
 	[rssParser setShouldReportNamespacePrefixes:NO];
 	[rssParser setShouldResolveExternalEntities:NO];
 	[rssParser setDelegate:self];
 	[rssParser parse];
+	
 	[rssParser release];
+	[url release];
+	
 	[pool drain];
 }
 
@@ -54,7 +60,6 @@ NSString * const LINK = @"link";
 - (void)parserDidEndDocument:(NSXMLParser *) parser {
 
 	if ([self.delegate respondsToSelector:@selector(responseArray:)]) {
-		//[self.delegate responseArray:[resultEntries autorelease]];
 		[ (id)self.delegate performSelectorOnMainThread:@selector(responseArray:) withObject:resultEntries waitUntilDone:NO];
 	}
 }
@@ -89,7 +94,6 @@ NSString * const LINK = @"link";
 	}
 	
 	[itemParsed release];
-
 }
 
 
@@ -111,7 +115,6 @@ NSString * const LINK = @"link";
 		[currDate appendString:string];
 		
 	}
-
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -125,6 +128,7 @@ NSString * const LINK = @"link";
 }
 
 - (void) dealloc{
+
 	self.delegate = nil;
 	[currDescription release];
 	[currDate release];

@@ -8,20 +8,22 @@
 #import "EGORefreshTableHeaderView.h"
 #import <UIKit/UIKit.h>
 #import "SBXMLParser.h"
-
+#import "WebBrowserController.h"
 
 @interface RSSFeed : UITableViewController <SBParserDelegate>{
 	EGORefreshTableHeaderView *refreshHeaderView;
 	BOOL _reloading;
 	NSOperationQueue *xmlQueue;
-	//	UIActivityIndicatorView *spinner;
+
+	WebBrowserController * webBrowser;
+	
 	SBXMLParser * xmlParser;
 	NSMutableArray *entries;
-	NSString * urlFeed;
+	NSString * _urlFeed;
 }
 
+@property (nonatomic, copy) NSString * urlFeed;
 @property(assign,getter=isReloading) BOOL reloading;
 - (void)reloadTableViewDataSource;
-//- (void)doneLoadingTableViewData;
 
 @end

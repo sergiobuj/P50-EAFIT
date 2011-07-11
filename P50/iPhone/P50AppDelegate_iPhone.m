@@ -15,6 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {	
+	
 	LasVegasViewController * viewController = [[LasVegasViewController alloc] init];
 	
 	mainEntrance = [[UINavigationController alloc] initWithRootViewController:viewController];

@@ -45,44 +45,44 @@
 	<key>videos</key>
 	<array>
 		<dict>
+			<key>date</key>
+			<string>07/07/2011</string>
 			<key>title</key>
 			<string>Trailer Senna</string>
 			<key>videoURL</key>
 			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
-			<key>date</key>
-			<string>07/07/2011</string>
 		</dict>
 		<dict>
+			<key>date</key>
+			<string>07/07/2011</string>
 			<key>title</key>
 			<string>Trailer Senna</string>
 			<key>videoURL</key>
 			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
-			<key>date</key>
-			<string>07/07/2011</string>
 		</dict>
 		<dict>
+			<key>date</key>
+			<string>07/07/2011</string>
 			<key>title</key>
 			<string>Trailer Senna</string>
 			<key>videoURL</key>
 			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
-			<key>date</key>
-			<string>07/07/2011</string>
 		</dict>
 		<dict>
+			<key>date</key>
+			<string>07/07/2011</string>
 			<key>title</key>
 			<string>Trailer Senna</string>
 			<key>videoURL</key>
 			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
-			<key>date</key>
-			<string>07/07/2011</string>
 		</dict>
 		<dict>
+			<key>date</key>
+			<string>07/07/2011</string>
 			<key>title</key>
 			<string>Trailer Senna</string>
 			<key>videoURL</key>
 			<string>http://trailers.apple.com/movies/independent/senna/senna-tlr1_480p.mov</string>
-			<key>date</key>
-			<string>07/07/2011</string>
 		</dict>
 	</array>
 </dict>
