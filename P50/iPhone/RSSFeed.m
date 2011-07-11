@@ -59,7 +59,7 @@
 	xmlQueue = [[NSOperationQueue alloc] init];
 
 	if (_urlFeed == nil) {
-		NSString *plistUrl =  [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey:@"RSSFeed"];
+		NSString *plistUrl =  [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey:NSStringFromClass([self class])];
 		_urlFeed = [[NSString alloc] initWithString:plistUrl];
 	}
 
