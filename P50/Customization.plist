@@ -21,7 +21,7 @@
 				<key>title</key>
 				<string>feedback_title</string>
 				<key>viewController</key>
-				<string></string>
+				<string>FeedbackController</string>
 			</dict>
 			<dict>
 				<key>title</key>

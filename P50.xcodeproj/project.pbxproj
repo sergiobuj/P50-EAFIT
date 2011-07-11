@@ -10,6 +10,9 @@
 		A051FC1513CA64DB0034BFEE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A051FC1313CA64DB0034BFEE /* Localizable.strings */; };
 		A051FC1A13CA65080034BFEE /* WebBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = A051FC1813CA65080034BFEE /* WebBrowserController.m */; };
 		A051FC1B13CA65080034BFEE /* WebBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A051FC1913CA65080034BFEE /* WebBrowserController.xib */; };
+		A051FC2D13CA9CA70034BFEE /* FeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = A051FC2B13CA9CA60034BFEE /* FeedbackController.m */; };
+		A051FC2E13CA9CA70034BFEE /* FeedbackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A051FC2C13CA9CA70034BFEE /* FeedbackController.xib */; };
+		A051FC3013CA9DEA0034BFEE /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A051FC2F13CA9DEA0034BFEE /* MessageUI.framework */; };
 		A05B2DF213C4FCEF00F1525B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF113C4FCEF00F1525B /* UIKit.framework */; };
 		A05B2DF413C4FCEF00F1525B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF313C4FCEF00F1525B /* Foundation.framework */; };
 		A05B2DF613C4FCEF00F1525B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05B2DF513C4FCEF00F1525B /* CoreGraphics.framework */; };
@@ -80,6 +83,10 @@
 		A051FC1713CA65070034BFEE /* WebBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebBrowserController.h; path = iPhone/WebBrowserController.h; sourceTree = "<group>"; };
 		A051FC1813CA65080034BFEE /* WebBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebBrowserController.m; path = iPhone/WebBrowserController.m; sourceTree = "<group>"; };
 		A051FC1913CA65080034BFEE /* WebBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebBrowserController.xib; path = iPhone/WebBrowserController.xib; sourceTree = "<group>"; };
+		A051FC2A13CA9CA60034BFEE /* FeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackController.h; path = iPhone/FeedbackController.h; sourceTree = "<group>"; };
+		A051FC2B13CA9CA60034BFEE /* FeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackController.m; path = iPhone/FeedbackController.m; sourceTree = "<group>"; };
+		A051FC2C13CA9CA70034BFEE /* FeedbackController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackController.xib; path = iPhone/FeedbackController.xib; sourceTree = "<group>"; };
+		A051FC2F13CA9DEA0034BFEE /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A05B2DED13C4FCEE00F1525B /* P50.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P50.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05B2DF113C4FCEF00F1525B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A05B2DF313C4FCEF00F1525B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A051FC3013CA9DEA0034BFEE /* MessageUI.framework in Frameworks */,
 				A05B2F6E13C665B700F1525B /* Security.framework in Frameworks */,
 				A05B2F6413C6656A00F1525B /* MediaPlayer.framework in Frameworks */,
 				A05B2F6213C6656500F1525B /* QuartzCore.framework in Frameworks */,
@@ -216,6 +224,7 @@
 		A05B2DF013C4FCEE00F1525B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A051FC2F13CA9DEA0034BFEE /* MessageUI.framework */,
 				A05B2F6D13C665B700F1525B /* Security.framework */,
 				A05B2F6313C6656A00F1525B /* MediaPlayer.framework */,
 				A05B2F6113C6656500F1525B /* QuartzCore.framework */,
@@ -268,6 +277,9 @@
 				A051FC1713CA65070034BFEE /* WebBrowserController.h */,
 				A051FC1813CA65080034BFEE /* WebBrowserController.m */,
 				A051FC1913CA65080034BFEE /* WebBrowserController.xib */,
+				A051FC2A13CA9CA60034BFEE /* FeedbackController.h */,
+				A051FC2B13CA9CA60034BFEE /* FeedbackController.m */,
+				A051FC2C13CA9CA70034BFEE /* FeedbackController.xib */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -527,6 +539,7 @@
 				A0D9298F13C6C070007A0FA5 /* p50img.png in Resources */,
 				A051FC1513CA64DB0034BFEE /* Localizable.strings in Resources */,
 				A051FC1B13CA65080034BFEE /* WebBrowserController.xib in Resources */,
+				A051FC2E13CA9CA70034BFEE /* FeedbackController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +600,7 @@
 				A0D9299E13C6C084007A0FA5 /* RSSFeed.m in Sources */,
 				A0D9299F13C6C084007A0FA5 /* VideoList.m in Sources */,
 				A051FC1A13CA65080034BFEE /* WebBrowserController.m in Sources */,
+				A051FC2D13CA9CA70034BFEE /* FeedbackController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
