@@ -144,6 +144,7 @@
 		A0D9299D13C6C084007A0FA5 /* ModalViewLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9299713C6C084007A0FA5 /* ModalViewLogin.m */; };
 		A0D9299E13C6C084007A0FA5 /* RSSFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9299913C6C084007A0FA5 /* RSSFeed.m */; };
 		A0D9299F13C6C084007A0FA5 /* VideoList.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9299B13C6C084007A0FA5 /* VideoList.m */; };
+		A0E5E64D13CBAE3C00D2263C /* SBRSSGDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E5E64C13CBAE3C00D2263C /* SBRSSGDataParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +407,8 @@
 		A0D9299913C6C084007A0FA5 /* RSSFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSFeed.m; path = iPhone/RSSFeed.m; sourceTree = "<group>"; };
 		A0D9299A13C6C084007A0FA5 /* VideoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoList.h; path = iPhone/VideoList.h; sourceTree = "<group>"; };
 		A0D9299B13C6C084007A0FA5 /* VideoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoList.m; path = iPhone/VideoList.m; sourceTree = "<group>"; };
+		A0E5E64B13CBAE3C00D2263C /* SBRSSGDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBRSSGDataParser.h; sourceTree = "<group>"; };
+		A0E5E64C13CBAE3C00D2263C /* SBRSSGDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBRSSGDataParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -920,6 +923,8 @@
 				A0D9298813C6C070007A0FA5 /* SBXMLParser.m */,
 				A0D9298913C6C070007A0FA5 /* UIColor+SBColors.h */,
 				A0D9298A13C6C070007A0FA5 /* UIColor+SBColors.m */,
+				A0E5E64B13CBAE3C00D2263C /* SBRSSGDataParser.h */,
+				A0E5E64C13CBAE3C00D2263C /* SBRSSGDataParser.m */,
 			);
 			name = SBAdds;
 			path = P50/SBAdds;
@@ -1151,6 +1156,7 @@
 				A0B2740913CB5A0400644C7E /* GDataServerError.m in Sources */,
 				A0B2740A13CB5A0400644C7E /* GDataXMLNode.m in Sources */,
 				A0B2741413CB64D700644C7E /* CalendarViewController.m in Sources */,
+				A0E5E64D13CBAE3C00D2263C /* SBRSSGDataParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "SBPlistReader.h"
 #import "SBXMLParser.h"
 #import "RSSFeed.h"
+#import "SBRSSGDataParser.h"
 
 @interface RSSFeed (Private)
 
@@ -62,7 +63,7 @@
 		NSString *plistUrl =  [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey:NSStringFromClass([self class])];
 		_urlFeed = [[NSString alloc] initWithString:plistUrl];
 	}
-
+	
 	xmlParser = [[SBXMLParser alloc] initWithUrl:_urlFeed];
 	
 	[xmlParser setDelegate:self];
@@ -76,6 +77,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	[xmlQueue addOperationWithBlock:^{
+		[SBRSSGDataParser parseRSS:_urlFeed withDelegate:self];
 		[xmlParser loadDocument];
 	}];
 	
@@ -120,8 +122,9 @@
     
     // Configure the cell...
 	cell.imageView.image = [UIImage imageNamed:@"icon.png"];
-	//	cell.detailTextLabel.text = @"";
+	cell.detailTextLabel.text = [NSString stringWithUTF8String:[[[entries objectAtIndex:indexPath.row] objectForKey:@"description"] cString]];
     cell.textLabel.text = [[entries objectAtIndex:indexPath.row] objectForKey:@"title"];
+
     return cell;
 }
 
@@ -131,14 +134,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	NSString * link = [[entries objectAtIndex: indexPath.row] objectForKey: @"link"];
+	NSString * link = [[entries objectAtIndex:indexPath.row] objectForKey: @"link"];
 	NSURLRequest * siteRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
 
 
 	
 	[self.navigationController pushViewController:webBrowser animated:YES];
 	[webBrowser.webView loadRequest:siteRequest];
-	[self.tableView deselectRowAtIndexPath: indexPath animated: YES];
+	[self.tableView deselectRowAtIndexPath:indexPath animated: YES];
 }
 
 
@@ -173,7 +176,7 @@
 
 
 #pragma mark -
-#pragma mark SBParserDelegate
+#pragma mark SBParserDelegate && SBRSSGDataParserDelegate
 - (void) responseArray:(NSMutableArray *)array
 {
 	

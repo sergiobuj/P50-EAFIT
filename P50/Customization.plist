@@ -33,16 +33,20 @@
 				<key>title</key>
 				<string>attended_workshops_title</string>
 				<key>viewController</key>
-				<string>https://www.google.com/calendar/feeds/google.com_jqv7qt9iifsaj94cuknckrabd8%40group.calendar.google.com/public/basic</string>
+				<string></string>
 			</dict>
 		</array>
 	</array>
 	<key>rss_feeds</key>
 	<dict>
-		<key>RSSFeed</key>
+		<key>CalendarViewController3</key>
+		<string>https://www.google.com/calendar/feeds/google.com_jqv7qt9iifsaj94cuknckrabd8%40group.calendar.google.com/public/basic</string>
+		<key>CalendarViewController2</key>
 		<string>http://docentes.eafit.edu.co/noticias.rss</string>
 		<key>CalendarViewController</key>
 		<string>https://www.google.com/calendar/feeds/iebabuvq68okvbo8f2ti7sub3s%40group.calendar.google.com/public/basic</string>
+		<key>RSSFeed</key>
+		<string>http://docentes.eafit.edu.co/noticias.rss</string>
 	</dict>
 	<key>videos</key>
 	<array>

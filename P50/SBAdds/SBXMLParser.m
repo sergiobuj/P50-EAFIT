@@ -8,12 +8,12 @@
 
 #import "SBXMLParser.h"
 
-NSString * const TITLE = @"title";
-NSString * const DESCR = @"description";
-NSString * const DATE = @"date";
-NSString * const PUBDATE = @"pubDate";
-NSString * const ITEM = @"item";
-NSString * const LINK = @"link";
+static NSString * TITLE = @"title";
+static NSString * DESCR = @"description";
+static NSString * DATE = @"date";
+static NSString * PUBDATE = @"pubDate";
+static NSString * ITEM = @"item";
+static NSString * LINK = @"link";
 
 @implementation SBXMLParser
 @synthesize delegate = _delegate;
