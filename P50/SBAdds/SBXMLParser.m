@@ -32,8 +32,8 @@ static NSString * LINK = @"link";
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	NSURL * url = [[NSURL alloc] initWithString:_rssFeedURL];
 	
-	//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-	//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
+	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
+	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
 	NSXMLParser * rssParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
 	
@@ -89,7 +89,6 @@ static NSString * LINK = @"link";
 		[itemParsed setObject:currDate forKey:DATE];
 		[itemParsed setObject:currLink forKey:LINK];
 		[itemParsed setObject:currDescription forKey:DESCR];
-//		[resultEntries addObject:[itemParsed copy]];
 		[resultEntries addObject:itemParsed];
 	}
 	

@@ -31,6 +31,8 @@
 	if (self) {
 		videosAvailable = [[NSMutableArray alloc] init];
 		[self fetchTableViewInfo];
+		spinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinnerView] autorelease]; 
 	}
 	
 	return self;
@@ -122,17 +124,20 @@
     return cell;
 }
 
-
+// TODO: Fetch video list from WebService
+#warning This Implementations is missing the real web service call
 - (void) fetchTableViewInfo {
+	[spinnerView startAnimating];
 
+	// Loading videos from 
 	[videosAvailable setArray: [SBPlistReader arrayForResource:@"videos" fromPlist:@"Customization"]];
 	
-
 	[self finishFetchTableViewInfo];
 }
 
 - (void) finishFetchTableViewInfo {
 	[self.tableView reloadData];
+	[spinnerView stopAnimating];
 }
 
 

@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface FeedbackController : UIViewController <MFMailComposeViewControllerDelegate> {
-    
+@interface FeedbackController : UIViewController <MFMailComposeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+	IBOutlet UIButton * feedbackTypePickerButton;
+	IBOutlet UIPickerView * feedbackCategoryPicker;
+	IBOutlet UITextView * feedbackTextView;
+	
+	NSArray * feedbackCategories;
+	NSString * selectedFeedbackCategory;
+	UIBarButtonItem * sendButton;
+	
+	UIActivityIndicatorView * spinnerView;
 }
-
+- (IBAction) showPicker;
 @end

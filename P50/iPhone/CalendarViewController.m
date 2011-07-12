@@ -39,7 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	if(spinnerView == nil)
+		spinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinnerView] autorelease]; 
 	NSString * plisturl = [[SBPlistReader dictionaryForResource:@"rss_feeds" fromPlist:@"Customization"] objectForKey:NSStringFromClass([self class])];
 	NSURL * feedurl = [NSURL URLWithString:plisturl];
 
@@ -56,10 +59,8 @@
 		[service setServiceShouldFollowNextLinks:YES];
 		[service setIsServiceRetryEnabled:YES];
 	}
-	//GDataServiceTicket *ticket;
-
-	//ticket = [service fetchFeedWithURL:feedurl  delegate:self	 didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
-	
+	[spinnerView startAnimating];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[service fetchFeedWithURL:feedurl
 					 delegate:self
 			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
@@ -70,25 +71,14 @@
 - (void)calendarListTicket:(GDataServiceTicket *)ticket
           finishedWithFeed:(GDataFeedCalendar *)feed
                      error:(NSError *)error {
-	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	if (error == nil) { 
 		[feedEntries setArray:[feed entries]];
 		[self.tableView reloadData];
-		//		for (GDataEntryCalendar *firstCalendar in  [feed entries]) {
-		//			
-		//			GDataTextConstruct *titleTextConstruct = [firstCalendar title];
-		//			//GDataTextConstruct *summary = [firstCalendar summary];
-		//			
-		//			//NSLog(@"---- %@ ----",[firstCalendar properties]);
-		//
-		//			//NSLog(@"title:%@ summary:%@", [titleTextConstruct stringValue], [[firstCalendar content] contentStringValue] );
-		//			
-		//		}
-		//
 	} else {
 		NSLog(@"fetch error: %@", error);
 	}
-	
+	[spinnerView stopAnimating];
 
 }
 
@@ -155,6 +145,7 @@
     
 	GDataEntryCalendar *thisCalendar = [feedEntries objectAtIndex:indexPath.row];
 	
+	cell.imageView.image = [UIImage imageNamed:@"icon.png"];
 	cell.textLabel.text = [[thisCalendar title] stringValue];
 	cell.detailTextLabel.text = [[thisCalendar content] contentStringValue];
     return cell;
@@ -172,6 +163,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

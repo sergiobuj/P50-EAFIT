@@ -11,6 +11,7 @@
 
 @interface VideoList : UITableViewController {
     NSMutableArray * videosAvailable;
+	UIActivityIndicatorView *spinnerView;
 }
 
 @property (nonatomic, retain) NSMutableArray * videosAvailable;

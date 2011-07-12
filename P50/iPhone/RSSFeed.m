@@ -75,13 +75,12 @@
 
 - (void) LoadXML{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
+
 	[xmlQueue addOperationWithBlock:^{
 		[SBRSSGDataParser parseRSS:_urlFeed withDelegate:self];
-		[xmlParser loadDocument];
+		//	[xmlParser loadDocument];
 	}];
-	
-	
+
 	[pool drain];
 }
 
@@ -184,6 +183,7 @@
 	[entries setArray:array];
 	[self.tableView reloadData];
 	[self dataSourceDidFinishLoadingNewData];
+
 
 }
 

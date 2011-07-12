@@ -16,7 +16,7 @@
 	NSOperationQueue *xmlQueue;
 
 	WebBrowserController * webBrowser;
-	
+
 	SBXMLParser * xmlParser;
 	NSMutableArray *entries;
 	NSString * _urlFeed;

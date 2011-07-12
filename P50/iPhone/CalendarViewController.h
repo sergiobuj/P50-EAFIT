@@ -10,7 +10,8 @@
 
 
 @interface CalendarViewController : UITableViewController {
-    NSMutableArray * feedEntries;
+    NSMutableArray * feedEntries;	
+	UIActivityIndicatorView * spinnerView;
 }
 
 @end
