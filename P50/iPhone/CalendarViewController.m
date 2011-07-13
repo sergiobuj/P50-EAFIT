@@ -54,32 +54,77 @@
 	
 	if (!service) {
 		service = [[GDataServiceGoogleCalendar alloc] init];
-		
+
 		[service setShouldCacheResponseData:YES];
 		[service setServiceShouldFollowNextLinks:YES];
 		[service setIsServiceRetryEnabled:YES];
 	}
+	
+
+	
 	[spinnerView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-	[service fetchFeedWithURL:feedurl
-					 delegate:self
-			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
+//	[service fetchFeedWithURL:feedurl
+//					 delegate:self
+//			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
+
+	
+	
+	GDataQueryCalendar *query = [GDataQueryCalendar calendarQueryWithFeedURL:feedurl];
+	[query setMaxResults:20];
+	[query setOrderBy:@"starttime"];
+	[query setIsAscendingOrder:YES];
+	
+	[service fetchFeedWithQuery:query
+					   delegate:self
+			  didFinishSelector:@selector(calendarEventsTicket:finishedWithFeed:error:)];
 	
 }
 
 
+- (void)calendarEventsTicket:(GDataServiceTicket *)ticket
+			finishedWithFeed:(GDataFeedCalendarEvent *)feed
+					   error:(NSError *)error {
+	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	
+	
+	for (GDataEntryCalendar *obj in [feed entries]) {
+		NSLog(@"%@",[obj valueForKeyPath:@"title.stringValue"]);
+		
+		GDataXMLElement * summ = [obj valueForKeyPath:@"summary"];
+		//		NSLog(@"%@",[obj valueForKeyPath:@"authors"]);
+		//		GDataAtomAuthor
+		//		for (NSString * str in [[obj properties]allValues]) {
+		//			NSLog(@"->%@<-", str);
+		//		}
+		NSLog(@"%@", [summ stringValue]);
+
+		NSLog(@" ");
+	}
+	
+	
+	[feedEntries setArray:[feed entries]];
+	[self.tableView reloadData];
+	
+	[spinnerView stopAnimating];
+}
+
 - (void)calendarListTicket:(GDataServiceTicket *)ticket
           finishedWithFeed:(GDataFeedCalendar *)feed
                      error:(NSError *)error {
+
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	
 	if (error == nil) { 
 		[feedEntries setArray:[feed entries]];
+
 		[self.tableView reloadData];
 	} else {
 		NSLog(@"fetch error: %@", error);
 	}
-	[spinnerView stopAnimating];
 
+	[spinnerView stopAnimating];
 }
 
 

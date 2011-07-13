@@ -77,6 +77,8 @@
 	UIBarButtonItem * loginB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"login_title", @"login button title") style:UIBarButtonItemStyleDone target:self action:@selector(login)];
 
 	self.navigationItem.rightBarButtonItem = loginB;
+	
+#warning Should remove cancel login button
 	self.navigationItem.leftBarButtonItem = cancelB;
 		
 	[loginB release];

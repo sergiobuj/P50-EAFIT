@@ -98,7 +98,8 @@ enum {
 
 	[cookingView release];
 	
-	[self showModal:self];	
+#warning Should show modal View
+	//	[self showModal:self];
 	
 }
 
