@@ -9,6 +9,8 @@
 #import "ModalViewLogin.h"
 #import "UIColor+SBColors.h"
 
+#define yFieldPos 160
+
 @implementation ModalViewLogin
 @synthesize delegate;
 @synthesize userField;
@@ -32,9 +34,15 @@
 
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen]applicationFrame]];
 	
-	userField = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, contentView.frame.size.width-20, 45)];
-	passField = [[UITextField alloc] initWithFrame:CGRectMake(10, 130, contentView.frame.size.width-20, 45)];
+	UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
+	[contentView addSubview:background];
+	[background release];
 	
+	userField = [[UITextField alloc] initWithFrame:CGRectMake(10, yFieldPos, contentView.frame.size.width-20, 45)];
+	passField = [[UITextField alloc] initWithFrame:CGRectMake(10, yFieldPos + 60, contentView.frame.size.width-20, 45)];
+	
+	[userField setPlaceholder:NSLocalizedString(@"user_id_placeholder", @"")];
+	[passField setPlaceholder:NSLocalizedString(@"user_pass_placeholder", @"")];
 	
 	//text field setup
 	userField.borderStyle = UITextBorderStyleRoundedRect;

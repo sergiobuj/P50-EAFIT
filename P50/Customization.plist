@@ -6,30 +6,70 @@
 	<array>
 		<array>
 			<dict>
+				<key>posX</key>
+				<integer>0</integer>
+				<key>posY</key>
+				<real>0.01</real>
+				<key>sizeH</key>
+				<real>0.25</real>
+				<key>sizeW</key>
+				<real>0.5</real>
 				<key>title</key>
 				<string>videos_title</string>
 				<key>viewController</key>
 				<string>VideoList</string>
 			</dict>
 			<dict>
+				<key>posX</key>
+				<real>0.5</real>
+				<key>posY</key>
+				<real>0.57</real>
+				<key>sizeH</key>
+				<real>0.22</real>
+				<key>sizeW</key>
+				<real>0.5</real>
 				<key>title</key>
 				<string>news_title</string>
 				<key>viewController</key>
 				<string>RSSFeed</string>
 			</dict>
 			<dict>
+				<key>posX</key>
+				<integer>0</integer>
+				<key>posY</key>
+				<real>0.57</real>
+				<key>sizeH</key>
+				<real>0.22</real>
+				<key>sizeW</key>
+				<real>0.5</real>
 				<key>title</key>
 				<string>feedback_title</string>
 				<key>viewController</key>
 				<string>FeedbackController</string>
 			</dict>
 			<dict>
+				<key>posX</key>
+				<real>0.5</real>
+				<key>posY</key>
+				<real>0.01</real>
+				<key>sizeH</key>
+				<real>0.25</real>
+				<key>sizeW</key>
+				<real>0.5</real>
 				<key>title</key>
 				<string>calendar_title</string>
 				<key>viewController</key>
 				<string>CalendarViewController</string>
 			</dict>
 			<dict>
+				<key>posX</key>
+				<integer>0</integer>
+				<key>posY</key>
+				<real>0.8</real>
+				<key>sizeH</key>
+				<real>0.1</real>
+				<key>sizeW</key>
+				<integer>1</integer>
 				<key>title</key>
 				<string>attended_workshops_title</string>
 				<key>viewController</key>
@@ -39,10 +79,10 @@
 	</array>
 	<key>rss_feeds</key>
 	<dict>
-		<key>CalendarViewController1</key>
-		<string>https://www.google.com/calendar/feeds/ik8r7s70e3r9dhk69ff7urtkpg%40group.calendar.google.com/public/basic</string>
 		<key>CalendarViewController</key>
 		<string>https://www.google.com/calendar/feeds/roimcvd5vt650belj3a53ivcvc%40group.calendar.google.com/public/basic</string>
+		<key>CalendarViewController1</key>
+		<string>https://www.google.com/calendar/feeds/ik8r7s70e3r9dhk69ff7urtkpg%40group.calendar.google.com/public/basic</string>
 		<key>CalendarViewController3</key>
 		<string>https://www.google.com/calendar/feeds/google.com_jqv7qt9iifsaj94cuknckrabd8%40group.calendar.google.com/public/basic</string>
 		<key>RSSFeed</key>

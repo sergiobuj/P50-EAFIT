@@ -68,7 +68,7 @@
 //					 delegate:self
 //			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
 
-	
+	NSLog(@"------- %@", feedurl );
 	
 	GDataQueryCalendar *query = [GDataQueryCalendar calendarQueryWithFeedURL:feedurl];
 	[query setMaxResults:20];

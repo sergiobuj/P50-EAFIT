@@ -56,21 +56,36 @@ enum {
 {
 	UIView * cookingView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
 	
+
+	
 	CGFloat viewW = cookingView.frame.size.width;
 	CGFloat viewH = cookingView.frame.size.height;
 	CGFloat buttonYStart = 0.1;
-
+	
+	UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buttonsBACK.png"]];
+	[cookingView addSubview:background];
+	[background release];
+	
 	NSArray *pages = [NSArray arrayWithArray:[SBPlistReader arrayForResource:@"pages" fromPlist:@"Customization"]];
 	
 	for ( NSArray * page in pages ) {
 		for (NSDictionary * button in page) {
-			UIButton * tempButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-			[tempButton setFrame:CGRectMake(viewW * 0.1, viewH * buttonYStart , 20 , 20)];
+			UIButton * tempButton = [UIButton buttonWithType:UIButtonTypeCustom];
+			
+			CGFloat posX = [[button objectForKey:@"posX"] floatValue];
+			CGFloat posY = [[button objectForKey:@"posY"] floatValue];
+
+			CGFloat sizeW = [[button objectForKey:@"sizeW"] floatValue];
+			CGFloat sizeH = [[button objectForKey:@"sizeH"] floatValue];
+			
+			[tempButton setFrame:CGRectMake(viewW * posX, viewH * posY , viewW * sizeW , viewH * sizeH)];
+			
 			[tempButton setTitle:NSLocalizedString( [button objectForKey:@"title"] , @"") forState:UIControlStateNormal];
 			NSString * classNameString = [NSString stringWithString:[button objectForKey:@"viewController"]];
 			[tempButton setTitle:classNameString forState:UIControlStateApplication];
 			[tempButton setTag:buttonYStart * 10];
-			[tempButton sizeToFit];
+			//[tempButton sizeToFit];
+			[tempButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 			[tempButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
 			
 			if( [classNameString isEqualToString:@""] || NSClassFromString(classNameString)== nil ){
@@ -99,7 +114,7 @@ enum {
 	[cookingView release];
 	
 #warning Should show modal View
-	//	[self showModal:self];
+	[self showModal:self];
 	
 }
 
