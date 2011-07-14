@@ -8,6 +8,7 @@
 
 #import "VideoList.h"
 #import "SBPlistReader.h"
+#import "UIColor+SBColors.h"
 
 @interface VideoList () 
 - (void) fetchTableViewInfo;
@@ -57,7 +58,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+	[self.tableView setSeparatorColor:[UIColor yellowP50]];
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -92,10 +94,7 @@
     [super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation { return YES; }
 
 #pragma mark - Table view data source
 
@@ -142,6 +141,10 @@
 
 
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 70;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

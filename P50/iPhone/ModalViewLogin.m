@@ -9,28 +9,15 @@
 #import "ModalViewLogin.h"
 #import "UIColor+SBColors.h"
 
-#define yFieldPos 160
+#define yFieldPos 90
 
 @implementation ModalViewLogin
 @synthesize delegate;
 @synthesize userField;
 @synthesize passField;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
- - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
- if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
- // Custom initialization
- }
- return self;
- }
- */
-
-
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
-//    [super viewDidLoad];
-	// the creation
+    [super viewDidLoad];
 
 	UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen]applicationFrame]];
 	
@@ -76,7 +63,7 @@
 }
 
 
-
+#warning Should remove cancel login button
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,14 +73,13 @@
 
 	self.navigationItem.rightBarButtonItem = loginB;
 	
-#warning Should remove cancel login button
+
 	self.navigationItem.leftBarButtonItem = cancelB;
 		
 	[loginB release];
 	[cancelB release];
 	
 }
-
 
 - (void) cancelButton{
 
@@ -103,7 +89,6 @@
 	}
 
 }
-
 
 -(void) login{
 	if ([self.delegate respondsToSelector:@selector(loginWithUsername:andPass:)]) {
@@ -119,28 +104,6 @@
 	}
 	
 	return YES;
-}
-
-
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 

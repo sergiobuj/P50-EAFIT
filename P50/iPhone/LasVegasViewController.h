@@ -16,11 +16,11 @@
     
 	//	RSSFeed * newsFeed;
 	//	CampusMap * campusMap;
-	
+	NSMutableSet * modalViewPresentable;
 	NSMutableDictionary * pagesDictionary;
 
 }
 
 - (void) buttonPressed:(id) sender;
-- (void) showModal:(id)sender;
+- (void) showLoginModal:(id)sender;
 @end

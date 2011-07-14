@@ -24,10 +24,12 @@ enum {
 	if (self) {
 		[super viewDidLoad];
 		pagesDictionary = [[NSMutableDictionary alloc] init];
-
-		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logosimbolo_eafit copy"]];
-		[[self navigationItem] setTitleView:imageView];
-		[imageView release];
+		modalViewPresentable = [[NSMutableSet alloc] init];
+		
+//		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logosimbolo_eafit copy"]];
+//		[[self navigationItem] setTitleView:imageView];
+//		[imageView release];
+		
 		
 	}
 	return self;
@@ -37,6 +39,7 @@ enum {
 - (void)dealloc
 {
 	[pagesDictionary release];
+	[modalViewPresentable release];
     [super dealloc];
 }
 
@@ -62,7 +65,7 @@ enum {
 	CGFloat viewH = cookingView.frame.size.height;
 	CGFloat buttonYStart = 0.1;
 	
-	UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buttonsBACK.png"]];
+	UIImageView * background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Internals2.png"]];
 	[cookingView addSubview:background];
 	[background release];
 	
@@ -79,17 +82,22 @@ enum {
 			CGFloat sizeH = [[button objectForKey:@"sizeH"] floatValue];
 			
 			[tempButton setFrame:CGRectMake(viewW * posX, viewH * posY , viewW * sizeW , viewH * sizeH)];
-			
 			[tempButton setTitle:NSLocalizedString( [button objectForKey:@"title"] , @"") forState:UIControlStateNormal];
+			
 			NSString * classNameString = [NSString stringWithString:[button objectForKey:@"viewController"]];
 			[tempButton setTitle:classNameString forState:UIControlStateApplication];
 			[tempButton setTag:buttonYStart * 10];
-			//[tempButton sizeToFit];
+
+			if ([[button objectForKey:@"presentMode"] isEqualToString:@"modal"]) {
+				[modalViewPresentable addObject:[button objectForKey:@"viewController"]];
+			}
+			
 			[tempButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 			[tempButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
 			
-			if( [classNameString isEqualToString:@""] || NSClassFromString(classNameString)== nil ){
+			//[tempButton setBackgroundColor:[UIColor greenColor]];
 			
+			if( [classNameString isEqualToString:@""] || NSClassFromString(classNameString)== nil ){
 				[tempButton setEnabled: NO];
 				[tempButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
 			} else {
@@ -113,13 +121,12 @@ enum {
 
 	[cookingView release];
 	
-#warning Should show modal View
-	[self showModal:self];
+	[self showLoginModal:self];
 	
 }
 
 
-- (void) showModal:(id)sender{
+- (void) showLoginModal:(id)sender{
 	
 	ModalViewLogin *stc  = [[ModalViewLogin alloc] init];
 	stc.delegate = self;
@@ -129,7 +136,6 @@ enum {
 	self.navigationItem.prompt = nil;
 	[navController release];
 	[stc release];
-
 
 }
 
@@ -148,11 +154,20 @@ enum {
 
 - (void) buttonPressed:(id)sender {
 	
+	NSString * viewCont = NSStringFromClass([[pagesDictionary objectForKey:[sender titleForState:UIControlStateApplication]] class]);
+	if ([modalViewPresentable containsObject:viewCont]) {
+		
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[pagesDictionary objectForKey:[sender titleForState:UIControlStateApplication]]];
+		[[navController navigationBar] setTintColor:[UIColor blueP50]];
+		[self.navigationController presentModalViewController:navController animated:YES];
+		self.navigationItem.prompt = nil;
+		[navController release];
+		
+	} else {
+		[self.navigationController pushViewController:[pagesDictionary objectForKey: [sender titleForState:UIControlStateApplication]] animated:YES];
+	}
 	
-	[self.navigationController pushViewController:[pagesDictionary objectForKey: [sender titleForState:UIControlStateApplication]] animated:YES];
-
-}
-
+	}
 
 
 #pragma mark -

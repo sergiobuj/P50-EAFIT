@@ -9,15 +9,19 @@
 #import "FeedbackController.h"
 #import "UIColor+SBColors.h"
 
+#define kSecondsToDisplayThankNote 5.0
+
 @interface FeedbackController ()
 
 - (void) restoreFeedbackFields; 
 - (void) sendFeedback;
+- (void) removeThankNote;
 
 @end
 
 
 @implementation FeedbackController
+@synthesize thankTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +46,12 @@
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+	UIBarButtonItem *cancelB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModalViewControllerAnimated:)];
+	
+	self.navigationItem.leftBarButtonItem = cancelB;
+	
+	[cancelB release];
+	
 	
 	self.navigationItem.rightBarButtonItem = sendButton;
 	
@@ -52,6 +62,7 @@
 						  NSLocalizedString(@"feedback_general", @""),
 						  NSLocalizedString(@"feedback_other", @""), 
 						  nil];
+	
 	[feedbackTextView becomeFirstResponder];
 }
 
@@ -82,7 +93,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-}
+	}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -101,13 +112,22 @@
 	feedbackCategoryPicker.hidden = NO;
 }
 
+- (void) removeThankNote {
+	self.navigationItem.prompt = nil;
+	[thankTimer invalidate];
+}
+
 #warning send Feedback
 - (void) sendFeedback {
 	[spinnerView startAnimating];
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinnerView] autorelease]; 
-	NSLog(@"%@ %@", selectedFeedbackCategory, [feedbackTextView text] );
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinnerView] autorelease];	
 	
+	NSLog(@"%@ %@", [feedbackCategories objectAtIndex:[feedbackCategoryPicker selectedRowInComponent:0] ], [feedbackTextView text] );
+	
+	self.navigationItem.prompt = NSLocalizedString(@"thank_you_feedback", @"");
 
+	[self setThankTimer:[NSTimer scheduledTimerWithTimeInterval:kSecondsToDisplayThankNote target:self selector:@selector(removeThankNote) userInfo:nil repeats:NO]];
+	
 	[spinnerView stopAnimating];
 	[self.navigationController popToRootViewControllerAnimated:YES];
 	

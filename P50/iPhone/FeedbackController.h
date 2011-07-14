@@ -19,6 +19,11 @@
 	UIBarButtonItem * sendButton;
 	
 	UIActivityIndicatorView * spinnerView;
+	
+	NSTimer * thankTimer;
 }
+
+@property (nonatomic, retain) NSTimer * thankTimer;
+
 - (IBAction) showPicker;
 @end

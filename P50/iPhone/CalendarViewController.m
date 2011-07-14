@@ -9,6 +9,7 @@
 #import "CalendarViewController.h"
 #import "GDataCalendar.h"
 #import "SBPlistReader.h"
+#import "UIColor+SBColors.h"
 
 @implementation CalendarViewController
 
@@ -28,17 +29,17 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation { return YES; }
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
+
 	if(spinnerView == nil)
 		spinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	
@@ -58,9 +59,11 @@
 		[service setShouldCacheResponseData:YES];
 		[service setServiceShouldFollowNextLinks:YES];
 		[service setIsServiceRetryEnabled:YES];
+		
 	}
 	
-
+	[self.tableView setSeparatorColor:[UIColor yellowP50]];
+	
 	
 	[spinnerView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -68,13 +71,13 @@
 //					 delegate:self
 //			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
 
-	NSLog(@"------- %@", feedurl );
+#warning log
+	//	NSLog(@"------- %@", feedurl );
 	
 	GDataQueryCalendar *query = [GDataQueryCalendar calendarQueryWithFeedURL:feedurl];
-	[query setMaxResults:20];
+	[query setMaxResults:100];
 	[query setOrderBy:@"starttime"];
 	[query setIsAscendingOrder:YES];
-	
 	[service fetchFeedWithQuery:query
 					   delegate:self
 			  didFinishSelector:@selector(calendarEventsTicket:finishedWithFeed:error:)];
@@ -88,9 +91,9 @@
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
-	
+#warning 3logs
 	for (GDataEntryCalendar *obj in [feed entries]) {
-		NSLog(@"%@",[obj valueForKeyPath:@"title.stringValue"]);
+		//		NSLog(@"%@",[obj valueForKeyPath:@"title.stringValue"]);
 		
 		GDataXMLElement * summ = [obj valueForKeyPath:@"summary"];
 		//		NSLog(@"%@",[obj valueForKeyPath:@"authors"]);
@@ -98,9 +101,9 @@
 		//		for (NSString * str in [[obj properties]allValues]) {
 		//			NSLog(@"->%@<-", str);
 		//		}
-		NSLog(@"%@", [summ stringValue]);
+		//		NSLog(@"%@", [summ stringValue]);
 
-		NSLog(@" ");
+		//		NSLog(@" ");
 	}
 	
 	
@@ -156,12 +159,6 @@
     [super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -172,8 +169,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    // Return the number of rows in the section.
     return [feedEntries count];
 }
 
@@ -190,7 +185,7 @@
     
 	GDataEntryCalendar *thisCalendar = [feedEntries objectAtIndex:indexPath.row];
 	
-	cell.imageView.image = [UIImage imageNamed:@"icon.png"];
+	cell.imageView.image = [UIImage imageNamed:@"Icon.png"];
 	cell.textLabel.text = [[thisCalendar title] stringValue];
 	cell.detailTextLabel.text = [[thisCalendar content] contentStringValue];
     return cell;
@@ -198,16 +193,12 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 70;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

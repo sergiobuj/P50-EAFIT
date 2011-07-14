@@ -37,7 +37,7 @@ static NSString * LINK = @"link";
 	if ([delegate respondsToSelector:@selector(responseArray:)]) {
 		[ (id)delegate performSelectorOnMainThread:@selector(responseArray:) withObject:responseArray waitUntilDone:NO];
 	}
-	
+	[docu release];
 }
 
 

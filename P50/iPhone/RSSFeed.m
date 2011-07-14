@@ -10,6 +10,7 @@
 #import "SBXMLParser.h"
 #import "RSSFeed.h"
 #import "SBRSSGDataParser.h"
+#import "UIColor+SBColors.h"
 
 @interface RSSFeed (Private)
 
@@ -71,6 +72,9 @@
 	[refreshHeaderView setState:EGOOPullRefreshLoading];
 	self.tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
 	[self reloadTableViewDataSource];
+	
+	[self.tableView setSeparatorColor:[UIColor yellowP50]];
+	
 }
 
 - (void) LoadXML{
@@ -120,7 +124,7 @@
     }
     
     // Configure the cell...
-	cell.imageView.image = [UIImage imageNamed:@"icon.png"];
+	cell.imageView.image = [UIImage imageNamed:@"P50-NewsIcon.png"];
 	cell.detailTextLabel.text = [NSString stringWithUTF8String:[[[entries objectAtIndex:indexPath.row] objectForKey:@"description"] cString]];
     cell.textLabel.text = [[entries objectAtIndex:indexPath.row] objectForKey:@"title"];
 
@@ -130,6 +134,10 @@
 
 #pragma mark -
 #pragma mark Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 70;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
