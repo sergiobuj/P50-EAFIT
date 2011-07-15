@@ -63,7 +63,7 @@
 }
 
 
-#warning Should remove cancel login button
+#warning SB Should remove cancel login button
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];

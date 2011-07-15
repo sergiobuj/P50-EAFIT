@@ -32,6 +32,9 @@
 		sendButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"send_feedback", @"") style:UIBarButtonItemStyleDone target:self action:@selector(sendFeedback)];
 		selectedFeedbackCategory = [[NSString alloc] init];
 		spinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		
+		
+		
 	}
     return self;
 }
@@ -51,8 +54,7 @@
 	self.navigationItem.leftBarButtonItem = cancelB;
 	
 	[cancelB release];
-	
-	
+
 	self.navigationItem.rightBarButtonItem = sendButton;
 	
 	[feedbackTypePickerButton setTitle:NSLocalizedString(@"enter_feedback_category", @"feedback category")forState:UIControlStateNormal];
@@ -117,7 +119,7 @@
 	[thankTimer invalidate];
 }
 
-#warning send Feedback
+#warning SB Send Feedback service
 - (void) sendFeedback {
 	[spinnerView startAnimating];
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinnerView] autorelease];	

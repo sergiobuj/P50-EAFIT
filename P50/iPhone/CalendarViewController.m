@@ -18,6 +18,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+		self.tableView.rowHeight = 70;
     }
     return self;
 }
@@ -70,8 +71,6 @@
 //	[service fetchFeedWithURL:feedurl
 //					 delegate:self
 //			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
-
-#warning log
 	//	NSLog(@"------- %@", feedurl );
 	
 	GDataQueryCalendar *query = [GDataQueryCalendar calendarQueryWithFeedURL:feedurl];
@@ -84,18 +83,18 @@
 	
 }
 
-
+#warning SB 3logs
 - (void)calendarEventsTicket:(GDataServiceTicket *)ticket
 			finishedWithFeed:(GDataFeedCalendarEvent *)feed
 					   error:(NSError *)error {
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
-#warning 3logs
+
 	for (GDataEntryCalendar *obj in [feed entries]) {
 		//		NSLog(@"%@",[obj valueForKeyPath:@"title.stringValue"]);
 		
-		GDataXMLElement * summ = [obj valueForKeyPath:@"summary"];
+		//GDataXMLElement * summ = [obj valueForKeyPath:@"summary"];
 		//		NSLog(@"%@",[obj valueForKeyPath:@"authors"]);
 		//		GDataAtomAuthor
 		//		for (NSString * str in [[obj properties]allValues]) {
@@ -192,10 +191,6 @@
 }
 
 #pragma mark - Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 70;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

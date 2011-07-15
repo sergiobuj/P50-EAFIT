@@ -32,6 +32,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization.
+		self.tableView.rowHeight = 70;
     }
     return self;
 }
@@ -134,10 +135,6 @@
 
 #pragma mark -
 #pragma mark Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 70;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
