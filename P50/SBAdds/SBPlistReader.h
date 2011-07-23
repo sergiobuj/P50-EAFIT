@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SBPlistReader : NSObject {
-
-}
+@interface SBPlistReader : NSObject
 
 + (NSDictionary *) dictionaryForResource:(NSString *) resource fromPlist:(NSString *) plist;
 + (NSArray *) arrayForResource:(NSString *) resource fromPlist:(NSString *) plist;

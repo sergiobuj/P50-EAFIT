@@ -13,20 +13,23 @@
 @interface SBXMLParser : NSObject <NSXMLParserDelegate>{
 	NSMutableDictionary * itemParsed;
 	NSMutableArray * resultEntries;
+
+	NSString *_rssFeedURL;
 	NSString * currElement;
 	NSMutableString * currLink;
 	NSMutableString * currDate;
 	NSMutableString * currTitle;
 	NSMutableString * currDescription;
 	id <SBParserDelegate> _delegate ;
-	NSString *_rssFeedURL;
 
 }
 
 @property (nonatomic, retain) id <SBParserDelegate> delegate;
 @property (nonatomic, copy) NSString * rssFeedURL;
+
 - (id) initWithUrl:(NSString *)url;
 - (void) loadDocument;
+
 @end
 
 @protocol SBParserDelegate <NSObject>

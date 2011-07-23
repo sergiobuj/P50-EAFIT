@@ -3,7 +3,7 @@
 //  P50
 //
 //  Created by Sergio Botero on 7/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 EAFIT I+D. All rights reserved.
 //
 
 #import "CalendarViewController.h"
@@ -12,25 +12,6 @@
 #import "UIColor+SBColors.h"
 
 @implementation CalendarViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation { return YES; }
 
@@ -62,17 +43,11 @@
 		
 	}
 	
-	[self.tableView setSeparatorColor:[UIColor yellowP50]];
-	
+	self.tableView.separatorColor = [UIColor yellowP50];
+	self.tableView.rowHeight = 70.0;
 	
 	[spinnerView startAnimating];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//	[service fetchFeedWithURL:feedurl
-//					 delegate:self
-//			didFinishSelector:@selector(calendarListTicket:finishedWithFeed:error:)];
-
-#warning log
-	//	NSLog(@"------- %@", feedurl );
 	
 	GDataQueryCalendar *query = [GDataQueryCalendar calendarQueryWithFeedURL:feedurl];
 	[query setMaxResults:100];
@@ -91,21 +66,12 @@
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
-#warning 3logs
+	/*
 	for (GDataEntryCalendar *obj in [feed entries]) {
-		//		NSLog(@"%@",[obj valueForKeyPath:@"title.stringValue"]);
-		
 		GDataXMLElement * summ = [obj valueForKeyPath:@"summary"];
-		//		NSLog(@"%@",[obj valueForKeyPath:@"authors"]);
-		//		GDataAtomAuthor
-		//		for (NSString * str in [[obj properties]allValues]) {
-		//			NSLog(@"->%@<-", str);
-		//		}
-		//		NSLog(@"%@", [summ stringValue]);
-
-		//		NSLog(@" ");
+		NSLog(@"%@", [summ stringValue]);
 	}
-	
+	*/
 	
 	[feedEntries setArray:[feed entries]];
 	[self.tableView reloadData];
@@ -130,40 +96,10 @@
 	[spinnerView stopAnimating];
 }
 
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
@@ -180,10 +116,8 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-    // Configure the cell...
-    
-	GDataEntryCalendar *thisCalendar = [feedEntries objectAtIndex:indexPath.row];
+
+   	GDataEntryCalendar *thisCalendar = [feedEntries objectAtIndex:indexPath.row];
 	
 	cell.imageView.image = [UIImage imageNamed:@"Icon.png"];
 	cell.textLabel.text = [[thisCalendar title] stringValue];
@@ -192,10 +126,6 @@
 }
 
 #pragma mark - Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 70;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

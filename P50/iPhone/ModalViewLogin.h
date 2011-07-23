@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol ModalViewLoginDelegate;
+
 @interface ModalViewLogin : UIViewController <UITextFieldDelegate> {
 	id <ModalViewLoginDelegate> delegate;
 	UITextField *userField;

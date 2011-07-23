@@ -47,38 +47,36 @@
 	[passField setFont:[UIFont systemFontOfSize:30.0]];
 	
 	//content view setup
-	[contentView setBackgroundColor:[UIColor blueP50]];
+	contentView.backgroundColor = [UIColor blueP50];
 	[contentView addSubview:userField];
 	[contentView addSubview:passField];
-	[userField setDelegate:self];
-	[userField setTag:1];
-	[passField setDelegate:self];
-	[passField setTag:2];
+
+	userField.delegate = self;
+	userField.tag = 1;
+	passField.delegate = self;
+	passField.tag = 2;
+	
 	//view setup
 	self.view = contentView;
 	self.title = NSLocalizedString(@"login_mod_title",@"");	
+
 	//release
-	
 	[contentView release];
 }
 
 
 #warning Should remove cancel login button
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 	UIBarButtonItem *cancelB = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButton)];
-	
 	UIBarButtonItem * loginB = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"login_title", @"login button title") style:UIBarButtonItemStyleDone target:self action:@selector(login)];
 
 	self.navigationItem.rightBarButtonItem = loginB;
-	
-
 	self.navigationItem.leftBarButtonItem = cancelB;
 		
 	[loginB release];
 	[cancelB release];
-	
 }
 
 - (void) cancelButton{
@@ -112,6 +110,5 @@
 	[passField release];
 	[super dealloc];
 }
-
 
 @end

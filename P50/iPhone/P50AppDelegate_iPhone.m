@@ -15,12 +15,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {	
-	
 	LasVegasViewController * viewController = [[LasVegasViewController alloc] init];
 	
 	mainEntrance = [[UINavigationController alloc] initWithRootViewController:viewController];
 	
-	[[mainEntrance navigationBar] setTintColor:[UIColor blueP50]];
+	mainEntrance.navigationBar.tintColor = [UIColor blueP50];
 	[self.window addSubview: mainEntrance.view];
 
 	[self.window makeKeyAndVisible];

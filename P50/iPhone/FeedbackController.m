@@ -27,7 +27,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
 		self.title = NSLocalizedString(@"send_feedback_title", @"feedback view title");
 		sendButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"send_feedback", @"") style:UIBarButtonItemStyleDone target:self action:@selector(sendFeedback)];
 		selectedFeedbackCategory = [[NSString alloc] init];
@@ -66,14 +65,6 @@
 	[feedbackTextView becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 - (void) viewWillAppear:(BOOL)animated {
 	
@@ -86,21 +77,6 @@
 	//	[self presentModalViewController:mailComposer animated:YES];
 	//	[mailComposer release];
 }
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *) error {
 	[self dismissModalViewControllerAnimated:NO];

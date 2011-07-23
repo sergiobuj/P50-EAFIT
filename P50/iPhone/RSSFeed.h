@@ -10,7 +10,7 @@
 #import "SBXMLParser.h"
 #import "WebBrowserController.h"
 
-@interface RSSFeed : UITableViewController <SBParserDelegate>{
+@interface RSSFeed : UITableViewController <SBParserDelegate> {
 	EGORefreshTableHeaderView *refreshHeaderView;
 	BOOL _reloading;
 	NSOperationQueue *xmlQueue;
@@ -24,6 +24,7 @@
 
 @property (nonatomic, copy) NSString * urlFeed;
 @property(assign,getter=isReloading) BOOL reloading;
+
 - (void)reloadTableViewDataSource;
 
 @end

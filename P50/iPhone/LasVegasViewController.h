@@ -14,8 +14,6 @@
 
 @interface LasVegasViewController : UIViewController <ModalViewLoginDelegate> {
     
-	//	RSSFeed * newsFeed;
-	//	CampusMap * campusMap;
 	NSMutableSet * modalViewPresentable;
 	NSMutableDictionary * pagesDictionary;
 
@@ -23,4 +21,5 @@
 
 - (void) buttonPressed:(id) sender;
 - (void) showLoginModal:(id)sender;
+
 @end

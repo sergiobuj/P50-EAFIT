@@ -26,4 +26,5 @@
 @property (nonatomic, retain) NSTimer * thankTimer;
 
 - (IBAction) showPicker;
+
 @end

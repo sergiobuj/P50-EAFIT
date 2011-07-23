@@ -24,21 +24,6 @@
 @synthesize urlFeed = _urlFeed;
 
 #pragma mark -
-#pragma mark Initialization
-
-
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-
-
-
-#pragma mark -
 #pragma mark View lifecycle
 
 
@@ -67,13 +52,15 @@
 	
 	xmlParser = [[SBXMLParser alloc] initWithUrl:_urlFeed];
 	
-	[xmlParser setDelegate:self];
+	xmlParser.delegate = self;
 
 	[refreshHeaderView setState:EGOOPullRefreshLoading];
 	self.tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
 	[self reloadTableViewDataSource];
 	
-	[self.tableView setSeparatorColor:[UIColor yellowP50]];
+	self.tableView.separatorColor = [UIColor yellowP50];
+	self.tableView.rowHeight = 70.0;
+	
 	
 }
 
@@ -93,27 +80,20 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-	//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
 
 #pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return [entries count];
 }
 
-
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
@@ -123,7 +103,6 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
 	cell.imageView.image = [UIImage imageNamed:@"P50-NewsIcon.png"];
 	cell.detailTextLabel.text = [NSString stringWithUTF8String:[[[entries objectAtIndex:indexPath.row] objectForKey:@"description"] cString]];
     cell.textLabel.text = [[entries objectAtIndex:indexPath.row] objectForKey:@"title"];
@@ -135,16 +114,10 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 70;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	NSString * link = [[entries objectAtIndex:indexPath.row] objectForKey: @"link"];
 	NSURLRequest * siteRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
-
-
 	
 	[self.navigationController pushViewController:webBrowser animated:YES];
 	[webBrowser.webView loadRequest:siteRequest];
@@ -154,13 +127,6 @@
 
 #pragma mark -
 #pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc. that aren't in use.
-}
 
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
