@@ -59,7 +59,7 @@
 	
 }
 
-
+#warning SB 3logs
 - (void)calendarEventsTicket:(GDataServiceTicket *)ticket
 			finishedWithFeed:(GDataFeedCalendarEvent *)feed
 					   error:(NSError *)error {

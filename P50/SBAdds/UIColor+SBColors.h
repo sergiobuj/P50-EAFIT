@@ -15,4 +15,6 @@
 + (UIColor *) blueP50;
 + (UIColor *) yellowP50;
 + (UIColor *) redP50;
++ (UIColor *) lightBlueP50;
+
 @end

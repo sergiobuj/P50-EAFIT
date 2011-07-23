@@ -9,6 +9,7 @@
 #import "VideoList.h"
 #import "SBPlistReader.h"
 #import "UIColor+SBColors.h"
+#import "VideoCell.h"
 
 @interface VideoList () 
 - (void) fetchTableViewInfo;
@@ -65,12 +66,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CustomCell";
     NSDictionary * video = [videosAvailable objectAtIndex:indexPath.row];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    VideoCell *cell = (VideoCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
 	cell.textLabel.text = [video objectForKey:@"title"];
@@ -79,7 +80,7 @@
 }
 
 // TODO: Fetch video list from WebService
-#warning This Implementations is missing the real web service call
+#warning SB This Implementations is missing the real web service call
 - (void) fetchTableViewInfo {
 	[spinnerView startAnimating];
 

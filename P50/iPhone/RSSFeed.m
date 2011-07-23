@@ -23,10 +23,7 @@
 @synthesize reloading = _reloading;
 @synthesize urlFeed = _urlFeed;
 
-#pragma mark -
 #pragma mark View lifecycle
-
-
 - (void)viewDidLoad {
 	
     [super viewDidLoad];

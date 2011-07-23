@@ -30,4 +30,8 @@
 	return [self colorWithRed:173.0/255.0 green:18.0/255.0 blue:37.0/255.0 alpha:1.0];
 }
 
++ (UIColor *) lightBlueP50 {
+	return [self colorWithRed:8.0/255.0 green:65.0/255.0 blue:122.0/255.0 alpha:1.0];
+}
+
 @end

@@ -11,6 +11,9 @@
 
 @interface AboutP50Controller : UIViewController {
     IBOutlet UITextView * aboutText;
+	IBOutlet UIImageView * bannerView;
+	IBOutlet UIImageView * backgroundView;
+	IBOutlet UILabel * p50AboutLabel;
 }
 
 @end
