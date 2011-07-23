@@ -64,16 +64,24 @@
 	return [videosAvailable count];
 }
 
+
+// TODO: Finish VideoCell* implementation to show additional details for every video
+#warning CellView not finished
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CustomCell";
     NSDictionary * video = [videosAvailable objectAtIndex:indexPath.row];
-
+/*
     VideoCell *cell = (VideoCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[VideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+*/
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	
 	cell.textLabel.text = [video objectForKey:@"title"];
 
     return cell;
